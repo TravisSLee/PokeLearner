@@ -1,13 +1,14 @@
 class Pokemon
+
+  attr_accessor :name, :number
+
   @@all = []
 
-  def initialize
+  def initialize(name)
     @@all << self
   end
 
   def self.all
-    @@all 
+    @@all
   end
-
-
 end
