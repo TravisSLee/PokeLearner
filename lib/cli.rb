@@ -5,15 +5,13 @@ class CLI
         puts ""
         puts "Welcome to PokeLearner"
         puts "______________________"
-        puts
         puts ""
-        puts "Enter a number to learn about the world of Pokemon, or hit 'exit' to exit the app"
+        puts "Enter a number from 1 - 20 to learn about the world of Pokemon, or hit 'exit' to exit the app"
         @number = gets.strip.downcase
-        API.gets_pokemon(number)
-        if number.to_i > 0 && number.to_i <= 893
-          API.gets_pokemon
+        if @number.to_i > 0 && @number.to_i <= 20
+          API.gets_pokemon(@number)
         else
-          puts "Such Pokemon doesn't exist yet!!"
+          puts "Sorry, that number is unavailable and that will be updated later on!!"
         end
       end
   end
