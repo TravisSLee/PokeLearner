@@ -4,10 +4,10 @@ class Pokemon
 
   @@all = []
 
-  def initialize(name: nil, number: nil, description: nil, url: nil)
+  def initialize(name: nil, url: nil)
     @name = name
-    @number = number
-    @description = number
+
+    @url = url
     @@all << self
   end
 
@@ -15,7 +15,5 @@ class Pokemon
     @@all
   end
 
-  def self.find_by_number(number)
-    self.all.select {|p| p.number == number}
-  end
+  
 end
