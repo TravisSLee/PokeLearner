@@ -10,10 +10,16 @@ class API
     results.each do |c|
       Pokemon.new(name: c["name"], url: c["url"])
     end
-    binding.pry
   end
 
+  def self.number_list
+    self.all.each.with_index(1) do | p, i |
+      puts "#{i}. #{p.name}"
+    end
+  end
+
+
   def self.get_desription(poke)
-    #use poke.url to acess another page of the api and get info to add to ths poke object 
+    #use poke.url to acess another page of the api and get info to add to ths poke object
   end
 end
