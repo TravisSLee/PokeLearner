@@ -13,7 +13,7 @@ class API
   end
 
   def self.number_list
-    self.all.each.with_index(1) do | p, i |
+    Pokemon.all.each.with_index(1) do | p, i |
       puts "#{i}. #{p.name}"
     end
   end
@@ -21,5 +21,10 @@ class API
 
   def self.get_desription(poke)
     #use poke.url to acess another page of the api and get info to add to ths poke object
+    url = "https://pokeapi.co/api/v2/pokemon-species/#{poke}/"
+    uri = URI(url)
+    response = Net::HTTP.get(uri)
+    results = JSON.parse(response)
+    end
   end
 end

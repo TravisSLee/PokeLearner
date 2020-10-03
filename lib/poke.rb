@@ -6,7 +6,8 @@ class Pokemon
 
   def initialize(name: nil, url: nil)
     @name = name
-
+    @description = description
+    @number = number
     @url = url
     @@all << self
   end
@@ -15,5 +16,5 @@ class Pokemon
     @@all
   end
 
-  
+
 end
