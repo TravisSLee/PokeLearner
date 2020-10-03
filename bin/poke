@@ -1,11 +1,5 @@
 #!/usr/bin/env ruby
 
-require 'pry'
-require 'httparty'
-require 'json'
-
-require_relative '../lib/cli'
-require_relative '../lib/api'
-require_relative '../lib/poke'
+require_relative '../config/environment'
 
 CLI.new.menu

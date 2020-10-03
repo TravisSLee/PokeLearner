@@ -25,6 +25,6 @@ class API
     uri = URI(url)
     response = Net::HTTP.get(uri)
     results = JSON.parse(response)
-    end
+    
   end
 end
