@@ -33,10 +33,6 @@ class CLI
           please_pick
           input = gets.strip.downcase
           #checks more
-        elsif input == "Dex Number"
-          please_pick
-          input = gets.strip.downcase
-          #checks
         else
           puts "Sorry, that Pokemon is unavailable at the moment, further research is needed!!"
         end

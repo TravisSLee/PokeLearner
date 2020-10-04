@@ -16,7 +16,7 @@ class API
   end
 
   def self.check(poke)
-    Pokemon.all.include?{|p| p.name == poke}
+    Pokemon.all.dectect{|p| p.name == poke}
   end
 
   def self.get_desription(poke)
