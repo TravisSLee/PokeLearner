@@ -26,15 +26,12 @@ class API
     end
 
     def self.get_cap_rate(poke)
-        Pokemon.all.each do |p|
-          if p.name == poke
-            url = p.url
-            uri = URI(url)
-            response = Net::HTTP.get(uri)
-            results = JSON.parse(response)
-            p.cap_rate = results["capture_rate"]
-            puts "#{poke}'s capture rate is #{p.cap_rate}%."
-          end
-        end
+      Pokemon.all.find {|p| p.name == poke}
+      url = 
+      uri = URI(url)
+      response = Net::HTTP.get(uri)
+      results = JSON.parse(response)
+      p.cap_rate = results["capture_rate"]
+      puts "#{poke}'s capture rate is #{p.cap_rate}%."
     end
   end

@@ -19,5 +19,7 @@ class Pokemon
     @@all
   end
 
-
+  def url
+    @url
+  end
 end

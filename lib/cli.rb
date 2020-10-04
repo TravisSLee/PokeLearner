@@ -15,8 +15,6 @@ class CLI
           please_pick
           input = gets.strip.downcase
           #checks if it is a pokemon then puts the pokemon and a description
-
-
         elsif input == "capture rate"
           please_pick
           input = gets.strip.downcase
@@ -34,7 +32,7 @@ class CLI
           #checks more
         else
           puts "Sorry, that Pokemon is unavailable at the moment, further research is needed!!"
-        input = get.strip.downcase
+          input = gets.strip.downcase
         end
       end
       puts "Thank you for coming today."
