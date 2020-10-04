@@ -15,10 +15,6 @@ class API
     end
   end
 
-  def self.check(poke)
-    Pokemon.all.dectect{|p| p.name == poke}
-  end
-
   def self.get_desription(poke)
     #use poke.url to acess another page of the api and get info to add to ths poke object
     Pokemon.all.map {|p| p.name == poke}
@@ -26,5 +22,16 @@ class API
       uri = URI(url)
       response = Net::HTTP.get(uri)
       results = JSON.parse(response)
+      poke.description = results["flavor_text_entries"]
+    end
+
+    def self.get_cap_rate(poke)
+      Pokemon.all.map {|p| p.name == poke}
+        url = p.url
+        uri = URI(url)
+        response = Net::HTTP.get(uri)
+        results = JSON.parse(response)
+        poke.cap_rate = results["capture_rate"]
+        puts "#{poke}'s capture rate is #{poke.cap_rate}%.'"
     end
   end
