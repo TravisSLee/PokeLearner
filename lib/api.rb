@@ -26,12 +26,14 @@ class API
     end
 
     def self.get_cap_rate(poke)
-      Pokemon.all.find {|p| p.name == poke}
-      url = 
+      match = Pokemon.all.find { |p| p.name == poke }
+      match_index = Pokemon.all.index(match)
+      dex_number = match_index + 1
+      url = "https://pokeapi.co/api/v2/pokemon-species/#{dex_number}"
       uri = URI(url)
       response = Net::HTTP.get(uri)
       results = JSON.parse(response)
-      p.cap_rate = results["capture_rate"]
+      poke.cap_rate = results["capture_rate"]
       puts "#{poke}'s capture rate is #{p.cap_rate}%."
     end
   end
