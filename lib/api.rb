@@ -15,6 +15,9 @@ class API
     end
   end
 
+  def self.check(poke)
+    Pokemon.all.include?{|p| p.name == poke}
+  end
 
   def self.get_desription(poke)
     #use poke.url to acess another page of the api and get info to add to ths poke object
@@ -23,7 +26,5 @@ class API
       uri = URI(url)
       response = Net::HTTP.get(uri)
       results = JSON.parse(response)
-      
-
+    end
   end
-end
