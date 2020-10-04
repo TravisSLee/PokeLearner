@@ -20,20 +20,21 @@ class CLI
         elsif input == "capture rate"
           please_pick
           input = gets.strip.downcase
-          ##checks if it is a pokemon then puts the pokemon and a capture rate
+          #checks if it is a pokemon then puts the pokemon and a capture rate
+          input.to_i
+          API.get_cap_rate(input)
         elsif input == "genus"
           please_pick
           input = gets.strip.downcase
           #checks stuff
-          se
-          end
+          API.get_cap_rate(input)
         elsif input == "habitat"
           please_pick
           input = gets.strip.downcase
           #checks more
         else
           puts "Sorry, that Pokemon is unavailable at the moment, further research is needed!!"
-          input = get.strip.downcase
+        input = get.strip.downcase
         end
       end
       puts "Thank you for coming today."
