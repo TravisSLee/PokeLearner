@@ -43,7 +43,10 @@ class CLI
 
     def prompt
       puts ""
-      puts "Now, what do you what to learn about a Pokemon? Or, hit 'exit' to exit the app."
+      puts "Here are your options:"
+      puts "1. Type a number from 1 - 20 to see a certain Pokemon"
+      puts "2. Type list to see the list again"
+      puts "3. Type exit to exit the app"
       puts ""
     end
 
