@@ -6,37 +6,37 @@ class CLI
       puts "______________________"
       puts ""
       puts "Here is a list of the available pokemon. Pick one please"
-      API.number_list
+      print_pokes
       prompt
       input = gets.strip.downcase
       #reach into poke.all and get the pokemon asked for and print it out
       while input != 'exit'
-        if input == "description"
-          please_pick
-          input = gets.strip.downcase
-          #checks if it is a pokemon then puts the pokemon and a description
-        elsif input == "capture rate"
-          please_pick
-          input = gets.strip.downcase
-          #checks if it is a pokemon then puts the pokemon and a capture rate
-          input.to_i
-          API.get_cap_rate(input)
-        elsif input == "genus"
-          please_pick
-          input = gets.strip.downcase
-          #checks stuff
-          API.get_cap_rate(input)
-        elsif input == "habitat"
-          please_pick
-          input = gets.strip.downcase
-          #checks more
+        if input.to_i > 0 && input.to_i <= Pokemon.all.length
+          poke = Pokemon.all[input.to_i - 1]
+          API.gets_pokemon_details(poke) if !poke.cap_rate 
+          print_poke(poke)
+        elsif input == "list"
+          print_pokes
         else
           puts "Sorry, that Pokemon is unavailable at the moment, further research is needed!!"
-          input = gets.strip.downcase
         end
+        prompt
+        input = gets.strip.downcase
       end
       puts "Thank you for coming today."
       puts "Bye Bye!!"
+    end
+
+    def print_poke(poke)
+      puts poke.name
+      puts poke.cap_rate
+      puts poke.description
+    end
+
+    def print_pokes
+      Pokemon.all.each.with_index(1) do | p, i |
+        puts "#{i}. #{p.name}"
+      end
     end
 
     def prompt

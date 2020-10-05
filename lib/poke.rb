@@ -19,7 +19,7 @@ class Pokemon
     @@all
   end
 
-  def url
-    @url
+  def self.find_by_name(poke)
+    Pokemon.all.find{|p| p.name == poke}
   end
 end

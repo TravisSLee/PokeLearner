@@ -9,31 +9,32 @@ class API
     end
   end
 
-  def self.number_list
-    Pokemon.all.each.with_index(1) do | p, i |
-      puts "#{i}. #{p.name}"
-    end
+  def self.gets_pokemon_details(poke)
+    url = poke.url
+    uri = URI(url)
+    response = Net::HTTP.get(uri)
+    results = JSON.parse(response)
+    poke.description = results["flavor_text_entries"][0]["flavor_text"]
+    poke.cap_rate = results["capture_rate"]
   end
 
-  def self.get_desrciption(poke)
-    #use poke.url to acess another page of the api and get info to add to ths poke object
-    Pokemon.all.map {|p| p.name == poke}
-      url = p.url
-      uri = URI(url)
-      response = Net::HTTP.get(uri)
-      results = JSON.parse(response)
-      poke.description = results["flavor_text_entries"]
-    end
-
-    def self.get_cap_rate(poke)
-      match = Pokemon.all.find { |p| p.name == poke }
-      match_index = Pokemon.all.index(match)
-      dex_number = match_index + 1
-      url = "https://pokeapi.co/api/v2/pokemon-species/#{dex_number}"
-      uri = URI(url)
-      response = Net::HTTP.get(uri)
-      results = JSON.parse(response)
-      poke.cap_rate = results["capture_rate"]
-      puts "#{poke}'s capture rate is #{p.cap_rate}%."
-    end
+  # def self.get_desrciption(poke)
+  #   #use poke.url to acess another page of the api and get info to add to ths poke object
+  #   Pokemon.all.map {|p| p.name == poke}
+  #     url = p.url
+  #     uri = URI(url)
+  #     response = Net::HTTP.get(uri)
+  #     results = JSON.parse(response)
+  #     poke.description = results["flavor_text_entries"]
+  #   end
+  #
+  #   def self.get_cap_rate(poke)
+  #     p = Pokemon.find_by_name(poke)
+  #     url = p.url
+  #     uri = URI(url)
+  #     response = Net::HTTP.get(uri)
+  #     results = JSON.parse(response)
+  #     p.cap_rate = results["capture_rate"]
+  #     puts "#{p.name}'s capture rate is #{p.cap_rate}%."
+  #   end
   end
