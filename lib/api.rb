@@ -18,6 +18,5 @@ class API
     poke.cap_rate = results["capture_rate"]
     poke.habitat = results["habitat"]["name"]
     poke.generation = results["generation"]["name"]
-    binding.pry 
   end
 end

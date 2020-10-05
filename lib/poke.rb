@@ -1,11 +1,13 @@
 class Pokemon
 
-  attr_accessor :name, :number, :description, :url, :generation, :cap_rate, :habitat
+  attr_accessor :name, :number, :description, :url, :generation, :cap_rate, :habitat, :names
 
   @@all = []
 
   def initialize(name: nil, url: nil)
     @name = name
+    @names = []
+    @names << @name
     @description = description
     @number = number
     @url = url
