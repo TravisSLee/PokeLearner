@@ -13,7 +13,7 @@ class CLI
       while input != 'exit'
         if input.to_i > 0 && input.to_i <= Pokemon.all.length
           poke = Pokemon.all[input.to_i - 1]
-          API.gets_pokemon_details(poke) if !poke.cap_rate 
+          API.gets_pokemon_details(poke) if !poke.cap_rate
           print_poke(poke)
         elsif input == "list"
           print_pokes
@@ -29,8 +29,10 @@ class CLI
 
     def print_poke(poke)
       puts poke.name
-      puts poke.cap_rate
-      puts poke.description
+      poke.description
+      poke.cap_rate
+      poke.habitat
+      poke.generation
     end
 
     def print_pokes
