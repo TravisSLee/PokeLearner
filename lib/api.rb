@@ -5,7 +5,8 @@ class API
     response = Net::HTTP.get(uri)
     results = JSON.parse(response)["results"]
     results.each do |c|
-      Pokemon.new(name: c["name"], url: c["url"])
+      upcase_name = c["name"].capitalize
+      Pokemon.new(name: upcase_name, url: c["url"])
     end
   end
 
@@ -18,7 +19,7 @@ class API
     des.gsub!(/[\n\f]/,' ')
     poke.description = des
     poke.cap_rate = results["capture_rate"]
-    poke.habitat = results["habitat"]["name"]
-    poke.generation = results["generation"]["name"]
+    poke.habitat = results["habitat"]["name"].capitalize
+    poke.generation = results["generation"]["name"].capitalize
   end
 end

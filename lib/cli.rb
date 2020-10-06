@@ -18,6 +18,7 @@ class CLI
         elsif input == "list"
           print_pokes
         else
+          puts ""
           puts "Sorry, that Pokemon is unavailable at the moment, further research is needed!!"
         end
         prompt
