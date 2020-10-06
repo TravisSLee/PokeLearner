@@ -21,6 +21,5 @@ class API
     poke.cap_rate = results["capture_rate"]
     poke.habitat = results["habitat"]["name"].capitalize
     poke.generation = results["generation"]["name"].capitalize
-    binding.pry
   end
 end
