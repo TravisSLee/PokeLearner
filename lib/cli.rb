@@ -31,11 +31,11 @@ class CLI
 
     def print_poke(poke)
       puts ""
-      puts "1.#{poke.name}"
-      puts "2.#{poke.description}"
-      puts "3.#{poke.cap_rate}"
-      puts "4.#{poke.generation}"
-      puts "5.#{poke.habitat}"
+      puts "1.This Pokemon is called #{poke.name}."
+      puts "2.#{poke.name}'s PokeDex's entry says: #{poke.description}."
+      puts "3.#{poke.name}'s capture rate is #{poke.cap_rate}%"
+      puts "4.This Pokemon first appeared in #{poke.generation}."
+      puts "5.#{poke.name} is usually found in #{poke.habitat}."
     end
 
     def print_pokes
