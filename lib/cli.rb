@@ -23,11 +23,13 @@ class CLI
         prompt
         input = gets.strip.downcase
       end
+      puts ""
       puts "Thank you for coming today."
       puts "Bye Bye!!"
     end
 
     def print_poke(poke)
+      puts ""
       puts "1.#{poke.name}"
       puts "2.#{poke.description}"
       puts "3.#{poke.cap_rate}"
@@ -45,8 +47,8 @@ class CLI
       puts ""
       puts "Here are your options:"
       puts "1. Type a number from 1 - 20 to see a certain Pokemon"
-      puts "2. Type list to see the list again"
-      puts "3. Type exit to exit the app"
+      puts "2. Type 'list' to see the list again"
+      puts "3. Type 'exit' to exit the app"
       puts ""
     end
 
