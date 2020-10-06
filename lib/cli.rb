@@ -1,7 +1,6 @@
 class CLI
   def menu
       API.gets_pokemon
-      Pokemon.make_name_list
       puts ""
       puts "Welcome to PokeLearner"
       puts "______________________"
@@ -12,10 +11,10 @@ class CLI
       input = gets.strip.downcase
       #reach into poke.all and get the pokemon asked for and print it out
       while input != 'exit'
-        binding.pry
         if input.to_i > 0 && input.to_i <= Pokemon.all.length
           poke = Pokemon.all[input.to_i - 1]
           API.gets_pokemon_details(poke) if !poke.cap_rate
+          binding.pry
           print_poke(poke)
         elsif input == "list"
           print_pokes
