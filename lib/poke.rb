@@ -7,7 +7,6 @@ class Pokemon
   def initialize(name: nil, url: nil)
     @name = name
     @names = []
-    @names << @name
     @description = description
     @number = number
     @url = url
@@ -15,9 +14,16 @@ class Pokemon
     @cap_rate = cap_rate
     @habitat = habitat
     @@all << self
+    @names << name
   end
 
   def self.all
     @@all
+  end
+
+  def self.make_name_list
+    Pokemon.all.each do |p|
+      @names << p.name
+    end 
   end
 end
