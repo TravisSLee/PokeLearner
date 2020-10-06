@@ -29,11 +29,11 @@ class CLI
     end
 
     def print_poke(poke)
-      puts poke.name
-      puts poke.description
-      puts poke.cap_rate
-      puts poke.habitat
-      puts poke.generation
+      puts "1.#{poke.name}"
+      puts "2.#{poke.description}"
+      puts "3.#{poke.cap_rate}"
+      puts "4.#{poke.generation}"
+      puts "5.#{poke.habitat}"
     end
 
     def print_pokes

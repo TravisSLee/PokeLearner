@@ -14,9 +14,9 @@ class API
     uri = URI(url)
     response = Net::HTTP.get(uri)
     results = JSON.parse(response)
-    description = results["flavor_text_entries"][0]["flavor_text"]
-    description.gsub!(/[!@%&"]/,'')
-    poke.description = description
+    des = results["flavor_text_entries"][0]["flavor_text"]
+    des.gsub!(/[\n\f]/,' ')
+    poke.description = des
     poke.cap_rate = results["capture_rate"]
     poke.habitat = results["habitat"]["name"]
     poke.generation = results["generation"]["name"]
